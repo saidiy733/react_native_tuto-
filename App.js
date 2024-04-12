@@ -1,27 +1,15 @@
 import { Image, StyleSheet, Text,SafeAreaView,Platform,StatusBar,View, Dimensions} from 'react-native';
 import {useDeviceOrientation} from '@react-native-community/hooks'
+import AppText from './components/AppText';
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}> 
-    <Text> manage FlexBox </Text>
     <View style={{
-      backgroundColor:'yellow',
-      flex:2
-      }}>
-    </View> 
-    <View style={{
-      backgroundColor:'green',
-      flex:1
-      }}>
-    </View> 
-     </SafeAreaView>
+      flex:1,
+      justifyContent:"center",
+      alignItems:"center", 
+      }}> 
+      <AppText>hi i love React Native !</AppText>
+    </View>
   );
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: 'orange',
-    paddingTop:Platform.OS==='android'? StatusBar.currentHeight:0,
-  }
-});
  
