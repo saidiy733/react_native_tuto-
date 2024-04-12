@@ -1,0 +1,73 @@
+Image and text features 
+<Text numberOfLines={1} onPress={handelPress}>hi anass Raissi Le lorem ipsum est, en imprimerie, une suite de mots sans signification utilisée à titre provisoire pour calibrer une mise en page, le texte définitif venant remplacer le faux-texte dès qu'il est prêt ou que la mise en page est achevée. Généralement, on utilise un texte en faux latin, le Lorem ipsum ou Lipsum. Wikipédia</Text>
+<Image source={require('./assets/favicon.png')}/>
+
+ <Text>no touchable image</Text>
+<TouchableWithoutFeedback onPress={()=>console.log("image pressed")}>
+<Image blurRadius={10} fadeDuration={2000} source={{uri:"https://picsum.photos/200/300"}}   style={{ width: 200, height: 300 }}/>
+</TouchableWithoutFeedback>
+
+<Text>touchable Image</Text>
+<TouchableOpacity>
+<Image blurRadius={10} fadeDuration={2000} source={{uri:"https://picsum.photos/200/300"}}   style={{ width: 200, height: 300 }}/>
+</TouchableOpacity> 
+
+<Text> TouchableHighlight</Text>
+<TouchableHighlight>  
+<Image source={{uri:"https://picsum.photos/200/300"}}   style={{ width: 200, height: 300 }}/>
+</TouchableHighlight>
+
+<Text> TouchableNativeFeedback</Text>
+<TouchableNativeFeedback>
+<View style={{width:200, height:200,backgroundColor:"red"}}/>
+</TouchableNativeFeedback>
+
+----   multiple css----
+    <SafeAreaView style={[styles.container]}>
+    <Text> Stylesheet</Text>
+    <Text>multiple css it take the left as active when share the same attrubute with different style </Text>
+    {/* <SafeAreaView style={[styles.container,anotherStyle]}> */}
+     </SafeAreaView>
+
+const anotherStyle={flex: 1,backgroundColor:'orange'}
+
+------adjust height for andriod and ios by platforme module,status backgroundColor
+
+  return (
+    <SafeAreaView style={styles.container}>
+    <Text> Adjust status height for top of device in andriod and iso by platforme,status bar modules </Text>
+     </SafeAreaView>
+  );
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'orange',
+    paddingTop:Platform.OS==='android'? StatusBar.currentHeight:0,
+  }
+});
+    ------Deimenseins----
+      console.log(Dimensions.get('screen')); 
+       LOG  {"fontScale": 1, "height": 807.2727272727273, "scale": 2.75, "width": 392.72727272727275}
+       evry points  had 2.75 pixels
+
+       
+       --- control orientation----
+
+       import {useDeviceOrientation} from '@react-native-community/hooks'
+export default function App() {
+  console.log(useDeviceOrientation());
+  const orientation =useDeviceOrientation();
+  console.log(useDeviceOrientation());
+  return (
+    <SafeAreaView style={styles.container}> 
+    <Text> Detecting orientations </Text>
+    <View style={{
+       backgroundColor:'aqua',
+       width:'100%',
+       height: orientation=='landscape' ?  '100%':"30%"
+       }}>
+    </View>
+     </SafeAreaView>
+  );
+}
+
